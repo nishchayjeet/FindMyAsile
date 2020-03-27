@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "70957926680",
+    "firebase_url": "https://findmyasile.firebaseio.com",
+    "project_id": "findmyasile",
+    "storage_bucket": "findmyasile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:70957926680:android:1415c0b496f248f996f66d",
+        "android_client_info": {
+          "package_name": "com.example.findmyasile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "70957926680-eb3tkv6qk1oasgve96h39a0be3gtffpg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.findmyasile",
+            "certificate_hash": "9ac4c8bbe31b5e9de3c3a2e4a6e233e02e4f51b8"
+          }
+        },
+        {
+          "client_id": "70957926680-a1pkd8ed7ub4fu156e2fno5l4amjoa9t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoh2emnjeqnsgZ3Bj42wQJZY4KfgRV9lY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "70957926680-a1pkd8ed7ub4fu156e2fno5l4amjoa9t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
