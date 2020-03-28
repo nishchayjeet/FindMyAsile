@@ -16,7 +16,7 @@ Intent intent;
     }
 
     public void click(View view) {
-        Toast toast=Toast.makeText(this,"maa chudao",Toast.LENGTH_LONG);
+        Toast toast=Toast.makeText(this,"hey",Toast.LENGTH_LONG);
         toast.show();
        intent = new Intent(this, Main2Activity.class);
        startActivity(intent);
