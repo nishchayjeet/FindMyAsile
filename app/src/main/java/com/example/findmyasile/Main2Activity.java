@@ -3,8 +3,12 @@ package com.example.findmyasile;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -20,6 +24,8 @@ import java.util.Map;
 public class Main2Activity extends AppCompatActivity {
 EditText ed1;
 TextView tv1;
+
+  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,17 +34,23 @@ TextView tv1;
         tv1=findViewById(R.id.textView2);
         FirebaseDatabase abc= FirebaseDatabase.getInstance();
          DatabaseReference db=abc.getReference();
-         c1 obj=new c1("coke","20");
-       // db.child("Products").push().setValue(obj);
+         c1 obj=new c1("honey","10&11");
+         db.child("Products").push().setValue(obj);
 
 
 
     }
-
+    private void closeKeyboard() {
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }}
     public void search(View view) {
+        closeKeyboard();
         FirebaseDatabase abc= FirebaseDatabase.getInstance();
         DatabaseReference db=abc.getReference();
-       Query query= db.child("Products").orderByChild("Pname").equalTo(ed1.getText().toString());
+       Query query= db.child("Products").orderByChild("Pname").equalTo(ed1.getText().toString().toLowerCase());
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -63,4 +75,6 @@ class c1{
         Pname = pname;
         Pasile = pasile;
     }
+
+
 }
