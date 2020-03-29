@@ -35,21 +35,21 @@ public class myList extends AppCompatActivity {
         recyclerView.addItemDecoration(dividerItemDecoration);
 
 
-        moviesList.add("Iron Man");
-        moviesList.add("The Incredible Hulk");
-        moviesList.add("Iron Man 2");
-        moviesList.add("Thor");
-        moviesList.add("Captain America: The First Avenger");
-        moviesList.add("The Avengers");
-        moviesList.add("Iron Man 3");
-        moviesList.add("Thor: The Dark World");
-        moviesList.add("Captain America: The Winter Soldier");
-        moviesList.add("Guardians of the Galaxy");
-        moviesList.add("Avengers: Age of Ultron");
-        moviesList.add("Ant-Man");
-        moviesList.add("Captain America: Civil War");
-        moviesList.add("Doctor Strange");
-        moviesList.add("Guardians of the Galaxy Vol. 2");
+        moviesList.add("Air Freshner");
+        moviesList.add("Alluminuim Foil");
+        moviesList.add("Apple Cider");
+        moviesList.add("Apple Sauce");
+        moviesList.add("Artificial Sweatner");
+        moviesList.add("Bacon");
+        moviesList.add("Baking Cups");
+        moviesList.add("Baking Soda");
+        moviesList.add("Bathroom Cleaner");
+        moviesList.add("Toilet Paper");
+        moviesList.add("BBQ Sauce");
+        moviesList.add("Beef");
+        moviesList.add("Beans");
+        moviesList.add("Bear");
+        moviesList.add("Bird Food");
         moviesList.add("Spider-Man: Homecoming");
         moviesList.add("Thor: Ragnarok");
         moviesList.add("Black Panther");

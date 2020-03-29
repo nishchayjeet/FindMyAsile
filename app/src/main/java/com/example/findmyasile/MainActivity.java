@@ -23,7 +23,7 @@ Intent intent;
     }
 
     public void add(View view) {
-        intent = new Intent(this, List.class);
+        intent = new Intent(this, myList.class);
         startActivity(intent);
     }
 }
