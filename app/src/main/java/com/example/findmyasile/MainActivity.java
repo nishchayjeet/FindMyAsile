@@ -13,8 +13,6 @@ public class MainActivity extends AppCompatActivity {
     Intent intent;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,9 +20,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
     }
+
     public void sample(View view) {
         intent = new Intent(this, getStarted.class);
         startActivity(intent);
+
     }
 
+    public void login(View view) {
+        intent = new Intent(this, login.class);
+        startActivity(intent);
+
+    }
 }
