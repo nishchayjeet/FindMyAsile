@@ -50,13 +50,7 @@ public class myList extends AppCompatActivity {
         moviesList.add("Beans");
         moviesList.add("Bear");
         moviesList.add("Bird Food");
-        moviesList.add("Spider-Man: Homecoming");
-        moviesList.add("Thor: Ragnarok");
-        moviesList.add("Black Panther");
-        moviesList.add("Avengers: Infinity War");
-        moviesList.add("Ant-Man and the Wasp");
-        moviesList.add("Captain Marvel");
-        moviesList.add("Avengers: Endgame");
-        moviesList.add("Spider-Man: Far From Home");
+      
+
     }
 }
