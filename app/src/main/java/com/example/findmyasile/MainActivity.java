@@ -21,18 +21,10 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-
     }
-
-    public void click(View view) {
-        Toast toast=Toast.makeText(this,"Hello",Toast.LENGTH_LONG);
-        toast.show();
-       intent = new Intent(this, Main2Activity.class);
-       startActivity(intent);
-    }
-
-    public void add(View view) {
-        intent = new Intent(this, myList.class);
+    public void sample(View view) {
+        intent = new Intent(this, getStarted.class);
         startActivity(intent);
     }
+
 }
