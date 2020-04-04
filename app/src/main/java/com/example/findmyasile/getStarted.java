@@ -36,8 +36,11 @@ public class getStarted extends AppCompatActivity {
 
 
     public void click(View view) {
+        /*
         Toast toast=Toast.makeText(this,"Hello",Toast.LENGTH_LONG);
         toast.show();
+        */
+
         intent = new Intent(this, Main2Activity.class);
         startActivity(intent);
     }
