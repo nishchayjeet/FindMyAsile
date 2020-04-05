@@ -1,8 +1,6 @@
 package com.example.findmyasile;
 
 
-import android.text.Layout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,8 +53,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             super(itemView);
 
             imageView = itemView.findViewById(R.id.imageView);
-            textView = itemView.findViewById(R.id.textView);
-            rowCountTextView = itemView.findViewById(R.id.rowCountTextView);
+            textView = itemView.findViewById(R.id.textViewName);
+            rowCountTextView = itemView.findViewById(R.id.textviewID);
 
             itemView.setOnClickListener(this);
 

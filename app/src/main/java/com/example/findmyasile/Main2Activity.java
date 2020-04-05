@@ -29,21 +29,61 @@ public class Main2Activity extends AppCompatActivity {
 EditText ed1;
 TextView tv1;
 
+
   
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        setTitle("Search Your Items");
+
+
+
         ed1=findViewById(R.id.editText);
         tv1=findViewById(R.id.textView2);
+
         FirebaseDatabase abc= FirebaseDatabase.getInstance();
          DatabaseReference db=abc.getReference();
+
          c1 obj=new c1("honey","10&11");
          db.child("Products").push().setValue(obj);
 
-
-
     }
+
+    private void closeKeyboard() {
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }}
+
+
+    public void search(View view) {
+        closeKeyboard();
+
+        FirebaseDatabase abc= FirebaseDatabase.getInstance();
+        DatabaseReference db=abc.getReference();
+
+        Query query= db.child("Products").orderByChild("Pname").equalTo(ed1.getText().toString().toLowerCase());
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds:dataSnapshot.getChildren()){
+                    Map map= (Map) ds.getValue();
+                    String getname = (String) map.get("Pasile");
+                    tv1.setText(getname);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.bottom_navigation, menu);
@@ -79,34 +119,10 @@ TextView tv1;
         }
 
     }
-    private void closeKeyboard() {
-        View view = this.getCurrentFocus();
-        if (view != null) {
-            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-        }}
-    public void search(View view) {
-        closeKeyboard();
-        FirebaseDatabase abc= FirebaseDatabase.getInstance();
-        DatabaseReference db=abc.getReference();
-       Query query= db.child("Products").orderByChild("Pname").equalTo(ed1.getText().toString().toLowerCase());
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot ds:dataSnapshot.getChildren()){
-                  Map map= (Map) ds.getValue();
-                  String getname = (String) map.get("Pasile");
-                  tv1.setText(getname);
-                }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
 }
+
+
 class c1{
     public String Pname,Pasile;
 

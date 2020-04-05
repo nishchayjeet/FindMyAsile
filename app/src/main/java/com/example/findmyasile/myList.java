@@ -27,13 +27,14 @@ public class myList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+        setTitle("Item List");
 
         moviesList = new ArrayList<>();
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerAdapter = new RecyclerAdapter(moviesList);
 
-  //     recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        //     recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         recyclerView.setAdapter(recyclerAdapter);
 
@@ -56,7 +57,7 @@ public class myList extends AppCompatActivity {
         moviesList.add("Beans");
         moviesList.add("Bear");
         moviesList.add("Bird Food");
-      
+
 
     }
     @Override

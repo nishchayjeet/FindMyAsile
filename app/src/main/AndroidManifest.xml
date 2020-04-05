@@ -9,9 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".login"></activity>
+        <activity android:name=".add_item" android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".login"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".splash"
+            android:screenOrientation="portrait"
             android:theme="@style/splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,11 +23,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".getStarted" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".myList" />
-        <activity android:name=".Main2Activity" />
-        <activity android:name=".Register" />
+        <activity
+            android:name=".getStarted"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".myList"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Main2Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Register"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="preloaded_fonts"
