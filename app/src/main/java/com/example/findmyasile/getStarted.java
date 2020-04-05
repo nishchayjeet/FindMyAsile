@@ -35,6 +35,8 @@ public class getStarted extends AppCompatActivity {
         startActivity(add);
     }
 
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.bottom_navigation, menu);
@@ -68,6 +70,9 @@ public class getStarted extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+
+
+
 
     }
 
