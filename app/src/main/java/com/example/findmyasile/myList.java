@@ -1,10 +1,16 @@
 package com.example.findmyasile;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +57,41 @@ public class myList extends AppCompatActivity {
         moviesList.add("Bear");
         moviesList.add("Bird Food");
       
+
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.bottom_navigation, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.nav_home:
+                Intent i = new Intent(myList.this , getStarted.class);
+                startActivity(i);
+                return true;
+
+            case R.id.nav_search:
+                Intent j = new Intent(myList.this , Main2Activity.class);
+                startActivity(j);
+                return true;
+
+            case R.id.nav_list:
+                Intent k = new Intent(myList.this, myList.class);
+                startActivity(k);
+                return true;
+
+            case R.id.nav_settings:
+                FirebaseAuth.getInstance().signOut();
+                Intent Tologin = new Intent(myList.this, login.class);
+                startActivity(Tologin);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
 
     }
 }

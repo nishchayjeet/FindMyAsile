@@ -4,14 +4,18 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -38,6 +42,41 @@ TextView tv1;
          db.child("Products").push().setValue(obj);
 
 
+
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.bottom_navigation, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.nav_home:
+                Intent i = new Intent(Main2Activity.this , getStarted.class);
+                startActivity(i);
+                return true;
+
+            case R.id.nav_search:
+                Intent j = new Intent(Main2Activity.this , Main2Activity.class);
+                startActivity(j);
+                return true;
+
+            case R.id.nav_list:
+                Intent k = new Intent(Main2Activity.this, myList.class);
+                startActivity(k);
+                return true;
+
+            case R.id.nav_settings:
+                FirebaseAuth.getInstance().signOut();
+                Intent Tologin = new Intent(Main2Activity.this, login.class);
+                startActivity(Tologin);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
 
     }
     private void closeKeyboard() {
