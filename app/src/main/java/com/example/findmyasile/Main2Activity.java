@@ -2,6 +2,7 @@ package com.example.findmyasile;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +16,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Map;
 
-public class Main2Activity extends AppCompatActivity {
+public class Main2Activity extends AppCompatActivity   {
 EditText ed1;
 TextView tv1;
 
@@ -37,6 +39,42 @@ TextView tv1;
         setContentView(R.layout.activity_main2);
         setTitle("Search Your Items");
 
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        bottomNavigationView.setSelectedItemId(R.id.nav_search);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()){
+
+                    case R.id.nav_home:
+                        startActivity(new Intent(getApplicationContext(),getStarted.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.nav_search:
+
+                        return true;
+
+                    case R.id.nav_list:
+                        startActivity(new Intent(getApplicationContext(),myList.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.nav_about:
+                        startActivity(new Intent(getApplicationContext(),about.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+
+
+
+                }
+                return false;
+            }
+        });
+
 
 
         ed1=findViewById(R.id.editText);
@@ -45,8 +83,8 @@ TextView tv1;
         FirebaseDatabase abc= FirebaseDatabase.getInstance();
          DatabaseReference db=abc.getReference();
 
-         c1 obj=new c1("honey","10&11");
-         db.child("Products").push().setValue(obj);
+         //c1 obj=new c1("honey","10&11");
+     //     db.child("Products").push().setValue(obj);
 
     }
 
@@ -71,7 +109,7 @@ TextView tv1;
                 for (DataSnapshot ds:dataSnapshot.getChildren()){
                     Map map= (Map) ds.getValue();
                     String getname = (String) map.get("Pasile");
-                    tv1.setText(getname);
+                    tv1.setText(getname+" Asile");
                 }
             }
 
@@ -93,20 +131,7 @@ TextView tv1;
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.nav_home:
-                Intent i = new Intent(Main2Activity.this , getStarted.class);
-                startActivity(i);
-                return true;
 
-            case R.id.nav_search:
-                Intent j = new Intent(Main2Activity.this , Main2Activity.class);
-                startActivity(j);
-                return true;
-
-            case R.id.nav_list:
-                Intent k = new Intent(Main2Activity.this, myList.class);
-                startActivity(k);
-                return true;
 
             case R.id.nav_settings:
                 FirebaseAuth.getInstance().signOut();
