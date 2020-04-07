@@ -7,17 +7,34 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RatingBar;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class about extends AppCompatActivity {
-
+RatingBar ratingBar;
+Button ratingBarButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         setTitle("About App");
+
+        ratingBar=(RatingBar)findViewById(R.id.ratingBar);
+
+        ratingBarButton=(Button)findViewById(R.id.ratingBarButton);
+
+        ratingBarButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                double rvalue = ratingBar.getRating();
+                Toast.makeText(getApplicationContext(),"Rating:-"+rvalue,Toast.LENGTH_LONG).show();
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 

@@ -52,8 +52,8 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="465dp"
-        android:layout_height="168dp"
+        android:layout_width="415dp"
+        android:layout_height="172dp"
         android:fontFamily="cursive"
         android:gravity="center"
         android:textColor="#FF8C00"
@@ -64,7 +64,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.839" />
+        app:layout_constraintVertical_bias="0.846" />
 
     <ImageView
         android:id="@+id/imageView6"
