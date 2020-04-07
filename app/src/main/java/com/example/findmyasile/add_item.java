@@ -83,7 +83,9 @@ public class add_item extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //  Toast.makeText(add_item.this,"Item Added In Server",Toast.LENGTH_SHORT).show();
+
+
+
 
                 String Pname = InputName.getText().toString();
                 String Pasile = inputAsile.getText().toString();
@@ -100,7 +102,7 @@ public class add_item extends AppCompatActivity {
                         for (DataSnapshot ds : dataSnapshot.getChildren()) {
                             Map map = (Map) ds.getValue();
                             String getname = (String) map.get("Pasile");
-
+                            String asile = (String) map.get("Pname");
                         }
                     }
 
@@ -110,6 +112,7 @@ public class add_item extends AppCompatActivity {
                     }
                 });
 
+                Toast.makeText(add_item.this,"Item Added In Server",Toast.LENGTH_SHORT).show();
 
             }
 

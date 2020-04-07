@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -107,9 +108,22 @@ TextView tv1;
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds:dataSnapshot.getChildren()){
+
                     Map map= (Map) ds.getValue();
+
                     String getname = (String) map.get("Pasile");
-                    tv1.setText(getname+" Asile");
+                    String asile = (String) map.get("Pname");
+
+                    if (ds.exists() == true)
+                    {
+                        tv1.setText(asile+ " " + "in" + " " + getname + " Asile");
+                    }
+                    else
+                    {
+                        tv1.setText("Item Not Found");
+                        Toast.makeText(Main2Activity.this," Item Not Found ",Toast.LENGTH_SHORT).show();
+                    }
+
                 }
             }
 
